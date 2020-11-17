@@ -14,6 +14,13 @@ void bubbleSort(T data[], int n){
   }
 }
 
+template<class T>
+void swap(T& x, T& y){
+  T temp = x;
+  x = y;
+  y = temp;
+}
+
 /* bubbleSort(array){
   for(int i = 0; i < array.length - 1; i++){
     for(int j = 0; j < array.length - 1 - i; j++){
