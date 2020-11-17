@@ -36,3 +36,5 @@ int main(){
   bubbleSort(data, n);
   print(data, n);
 }
+//best case complexity is O(n), worst case and average case complexity is O(n^2).
+//overall an algorithm that is a detriment to all Computer Science
