@@ -1,6 +1,13 @@
 #include <iostream>
 
 template<class T>
+void swap(T& x, T& y){
+  T temp = x;
+  x = y;
+  y = temp;
+}
+
+template<class T>
 
 void bubbleSort(T data[], int n){
   //regular loop that iterates through arrays
@@ -12,13 +19,6 @@ void bubbleSort(T data[], int n){
       }
     }
   }
-}
-
-template<class T>
-void swap(T& x, T& y){
-  T temp = x;
-  x = y;
-  y = temp;
 }
 
 template<class T>
