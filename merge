@@ -43,7 +43,8 @@ while (i <= middle){
   nums[k] = temparray[i];
   k++;
   i++;
-  
+
+//same reasoning for the last while loop applies to this loop, but for the right subarray
 while (j <= high){
   nums[k] = temparray[j];
   k++;
