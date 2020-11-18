@@ -28,6 +28,15 @@ void print(T data, int n){
   }
 }
 
+int main(){
+  int data[] = {4, 2, 1, 5, 3};
+  
+  int n = sizeof(data)/sizeof(data[0]);
+  
+  insertionSort(data, n);
+  print(data, n);
+}
+
 /* insertionSort(array){
   //iterate through array sequentially
   for (i = 1; i < length(array); i++){
