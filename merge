@@ -71,5 +71,10 @@ void sort(T data[], T temp[], int n){
 } 
 
 int main(){
-  int data[] = [1, 2, 3, 4, 5]
+  int data[] = {4, 2, 1, 5, 3};
+  
+  int n = sizeof(data)/sizeof(data[0]);
+  
+  insertionSort(data, n);
+  print(data, n);
 }
