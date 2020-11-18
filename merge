@@ -22,7 +22,7 @@ void merge(T data[], T temp[], int low, int mid, int high){
   
   //O(n) memory complexity
   //create temporary array, size is equal to size of input
-  for(int i = low; i < high; i++){
+  for(int i = low; i <= high; i++){
     temp[i] = data[i];
   }
   //variables to track indices
@@ -63,4 +63,13 @@ void print(T data, int n){
   for(int i = 0; i < n; i++){
     std::cout << data[i] << std::endl;
   }
+}
+
+template<class T>
+void sort(T data[], T temp[], int n){
+  mergesort(data, temp, 0, n - 1);
+} 
+
+int main(){
+  int data[] = [1, 2, 3, 4, 5]
 }
