@@ -1,2 +1,48 @@
 #include <iostream>
 #include <string> //in case we want to use an array of strings for an example
+
+
+
+/* mergeSort(low, high){
+  //base case for recursive method calls
+  if(low >= high){
+    middle = (low + high)/2;
+    
+    mergeSort(low, middle);
+    mergeSort(middle + 1, high);
+    merge(low, middle, high);
+  }
+}
+
+//merging function
+for(i = low to high){
+  temparray[i] = num[i];
+}
+
+i = low;
+j = middle + 1;
+k = high;
+
+while(i <= middle && j <= high){
+  if (temparray[i] <= temparray[j]) {
+    nums[k] = temparray[i];
+    i++
+  } else {
+    nums[k] = temparray[j];
+    j++;
+  }
+  k++;
+}
+
+while (i <= middle){
+  nums[k] = temparray[i];
+  k++;
+  i++;
+  
+while (j <= high){
+  nums[k] = temparray[j];
+  k++;
+  j++;
+}
+}
+*/
