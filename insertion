@@ -7,7 +7,19 @@ void swap(T& x, T& y){
   y = temp;
 }
 
-
+template<class T>
+void insertionSort(T data[], int n){
+  //iterate through array sequentially
+  for(int i = 1; i < n; i++){
+    int j = i;
+    //while previous item > given one, we keep swapping
+    while((j > 0) && (data[j - 1] > data[j])){
+      swap(data[j], data[j - 1]);
+      j--;
+    }
+  }
+}
+//Insertion sort starts at array[1] because it starts measuring array[1], array[1 - 1]
 
 template<class T>
 void print(T data, int n){
