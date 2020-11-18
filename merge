@@ -11,6 +11,7 @@
     mergeSort(low, middle);
     //call the merge sort method recursively on the right subarray
     mergeSort(middle + 1, high);
+    //conquer
     merge(low, middle, high);
   }
 }
