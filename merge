@@ -2,7 +2,6 @@
 #include <string> //in case we want to use an array of strings for an example
 
 
-
 /* mergeSort(low, high){
   //base case for recursive method calls
   if(low >= high){
