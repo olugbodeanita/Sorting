@@ -1,6 +1,24 @@
 #include <iostream>
 #include <string> //in case we want to use an array of strings for an example
 
+template<class T>
+void mergesort(T data[], T temp[], int low, int high){
+  
+  if(low >= high){
+    return;
+  }
+  int mid = (low + high)/2;
+  mergesort(data, low, mid);
+  mergesort(data, mid + 1, high);
+  merge(data, temp, low, mid, high);
+}
+
+template<class T>
+void print(T data, int n){
+  for(int i = 0; i < n; i++){
+    std::cout << data[i] << std::endl;
+  }
+}
 
 /* mergeSort(low, high){
   //base case for recursive method calls
