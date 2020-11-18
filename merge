@@ -7,9 +7,13 @@ void mergesort(T data[], T temp[], int low, int high){
   if(low >= high){
     return;
   }
+  //look for the middle index to partition the array into 2 equal subarrays
   int mid = (low + high)/2;
+  //call the merge sort method recursively on the left subarray
   mergesort(data, low, mid);
+  //call the merge sort method recursively on the right subarray
   mergesort(data, mid + 1, high);
+  //conquer
   merge(data, temp, low, mid, high);
 }
 
@@ -17,15 +21,18 @@ template<class T>
 void merge(T data[], T temp[], int low, int mid, int high){
   
   //O(n) memory complexity
+  //create temporary array, size is equal to size of input
   for(int i = low; i < high; i++){
     temp[i] = data[i];
   }
-  
+  //variables to track indices
   int i = low;
   int j = middle + 1;
   int k = low;
   
-  while( (i <= middle) && (j <= high) ){
+  //while we have items in left and right subarray
+  while( (i <= mid) && (j <= high) ){
+  //if left is smaller, we put it to its right/sorted position in the array
     if(temp[i] <= temp[j]){
       data[k] = temp[i];
       i++;
@@ -36,12 +43,14 @@ void merge(T data[], T temp[], int low, int mid, int high){
     k++;
   }
   
+  //sometimes we have items left in the left subarray, so we copy it to the final nums array. They're in sorted order at this point, so we just copy them
   while( i <= middle ){
     data[k] = temp[i];
     k++;
     i++;
   }
   
+  //same reasoning for the last while loop applies to this loop, but for the right subarray
   while( j > high ){
     data[k] = temp[i];
     j++;
@@ -55,54 +64,3 @@ void print(T data, int n){
     std::cout << data[i] << std::endl;
   }
 }
-
-/* mergeSort(low, high){
-  //base case for recursive method calls
-  if(low >= high){
-    //look for the middle index to partition the array into 2 equal subarrays
-    middle = (low + high)/2;
-    //call the merge sort method recursively on the left subarray
-    mergeSort(low, middle);
-    //call the merge sort method recursively on the right subarray
-    mergeSort(middle + 1, high);
-    //conquer
-    merge(low, middle, high);
-  }
-}
-
-//merging function
-for(i = low to high){
-//create temporary array, size is equal to size of input
-  temparray[i] = num[i];
-}
-//variables to track indices
-i = low;
-j = middle + 1;
-k = high;
-//while we have items in left and right subarray
-while(i <= middle && j <= high){
-  //if left is smaller, we put it to its right/sorted position in the array
-  if (temparray[i] <= temparray[j]) {
-    nums[k] = temparray[i];
-    i++
-  } else {
-    nums[k] = temparray[j];
-    j++;
-  }
-  k++;
-}
-
-//sometimes we have items left in the left subarray, so we copy it to the final nums array. They're in sorted order at this point, so we just copy them
-while (i <= middle){
-  nums[k] = temparray[i];
-  k++;
-  i++;
-
-//same reasoning for the last while loop applies to this loop, but for the right subarray
-while (j <= high){
-  nums[k] = temparray[j];
-  k++;
-  j++;
-}
-}
-*/
