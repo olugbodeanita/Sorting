@@ -75,6 +75,6 @@ int main(){
   
   int n = sizeof(data)/sizeof(data[0]);
   
-  insertionSort(data, n);
+  sort(data, temp, n);
   print(data, n);
 }
