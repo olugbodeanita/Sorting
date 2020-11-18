@@ -2,6 +2,7 @@
   //iterate through array sequentially
   for (i = 1; i < length(array); i++){
     j = i;
+    //while previous item > given one, we keep swapping
     while(j > 0 && array[j - 1] > array[j]{
       swap(array, j, j - 1);
       j = j - 1;
