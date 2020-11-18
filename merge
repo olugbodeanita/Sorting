@@ -3,7 +3,7 @@
 
 template<class T>
 void mergesort(T data[], T temp[], int low, int high){
-  
+  //base case for recursive method calls
   if(low >= high){
     return;
   }
@@ -40,6 +40,12 @@ void merge(T data[], T temp[], int low, int mid, int high){
     data[k] = temp[i];
     k++;
     i++;
+  }
+  
+  while( j > high ){
+    data[k] = temp[i];
+    j++;
+    k++;
   }
 }
 
