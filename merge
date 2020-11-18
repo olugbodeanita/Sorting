@@ -14,6 +14,36 @@ void mergesort(T data[], T temp[], int low, int high){
 }
 
 template<class T>
+void merge(T data[], T temp[], int low, int mid, int high){
+  
+  //O(n) memory complexity
+  for(int i = low; i < high; i++){
+    temp[i] = data[i];
+  }
+  
+  int i = low;
+  int j = middle + 1;
+  int k = low;
+  
+  while( (i <= middle) && (j <= high) ){
+    if(temp[i] <= temp[j]){
+      data[k] = temp[i];
+      i++;
+    } else {
+      data[k] = temp[j];
+      j++;
+    }
+    k++;
+  }
+  
+  while( i <= middle ){
+    data[k] = temp[i];
+    k++;
+    i++;
+  }
+}
+
+template<class T>
 void print(T data, int n){
   for(int i = 0; i < n; i++){
     std::cout << data[i] << std::endl;
