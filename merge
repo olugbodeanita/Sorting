@@ -5,9 +5,11 @@
 /* mergeSort(low, high){
   //base case for recursive method calls
   if(low >= high){
+    //look for the middle index to partition the array into 2 equal subarrays
     middle = (low + high)/2;
-    
+    //call the merge sort method recursively on the left subarray
     mergeSort(low, middle);
+    //call the merge sort method recursively on the right subarray
     mergeSort(middle + 1, high);
     merge(low, middle, high);
   }
