@@ -74,6 +74,7 @@ int main(){
   int data[] = {4, 2, 1, 5, 3};
   
   int n = sizeof(data)/sizeof(data[0]);
+  int temp[n];
   
   sort(data, temp, n);
   print(data, n);
