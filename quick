@@ -1,7 +1,42 @@
 #include <iostream>
 #include <string>
 
+template<class T>
+void swap(T& x, T& y){
+  T temp = x;
+  x = y;
+  y = temp;
+}
 
+template<class T>
+void quicksort(T data[], int n){
+  //base case
+  if (low >= high){
+    return;
+  }
+  //find a pivot item, partition array according to what the pivot is
+  int pivdex = partition(data, low, high);
+   //call this sort method recursively on left array
+  quicksort(data, low, pivdex - 1);
+   //call this sort method recursively on right array
+  quicksort(data, pivdex + 1, high);
+}
+
+template<class T>
+void print(T data, int n){
+  for(int i = 0; i < n; i++){
+    std::cout << data[i] << std::endl;
+  }
+}
+
+int main(){
+  int data[] = {4, 2, 1, 5, 3};
+  
+  int n = sizeof(data)/sizeof(data[0]);
+  
+  bubbleSort(data, n);
+  print(data, n);
+}
 /*
 quicksort(array, low, high){
   //base case
