@@ -20,6 +20,7 @@ void quicksort(T data[], int n){
   quicksort(data, low, pivdex - 1);
    //call this sort method recursively on right array
   quicksort(data, pivdex + 1, high);
+  //we use pivdex - 1 and pivdex + 1 because we aren't measuring the pivot at all
 }
 
 template<class T>
@@ -46,7 +47,7 @@ quicksort(array, low, high){
   //call this sort method recursively on left array
   quicksort(array, low, pivot - 1)
   //call this sort method recursively on right array
-  quicksort(array, pivot, high)
+  quicksort(array, pivot + 1, high)
   
   end
 }
