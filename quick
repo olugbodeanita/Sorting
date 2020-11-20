@@ -65,24 +65,3 @@ int main(){
   bubbleSort(data, n);
   print(data, n);
 }
-
-partition(array, low, high){
-  //we could generate a random item for the pivot, but we're using a middle item instead
-  pivotIndex = (low+high)/2
-  //make the pivot be the last item in the array
-  swap(pivotIndex, high)
-  
-  i = low
-  //loop decides what are the items that will be on the left side of the pivot or the right side of the pivot
-  for(low to high){
-    if array[j] <= array[high]{
-      swap(i, j)
-      i++
-    }
-  }
-  //i tracks threshold item -> separates items that are smaller/greater than the pivot
-  swap(i, high)
-  //return index of pivot
-  return i
-}
-*/
