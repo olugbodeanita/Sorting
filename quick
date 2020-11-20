@@ -30,6 +30,22 @@ void print(T data, int n){
   }
 }
 
+template<class T>
+void partition(T data[], int low, int high){
+  int pixdex = (low+high)/2;
+  swap(data[pivdex], data[high]);
+  int i = low;
+  
+  for(int j = low; j < high; j++){
+    if (data[j] <= data[high]){
+      swap(data[i], data[j]);
+      i++;
+    }
+  }
+  swap(data[i], data[high]);
+  return i;
+}
+
 int main(){
   int data[] = {4, 2, 1, 5, 3};
   
