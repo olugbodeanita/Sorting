@@ -46,6 +46,11 @@ void partition(T data[], int low, int high){
   return i;
 }
 
+template<class T>
+void sort(T data[], int n){
+  quicksort(data, 0, n - 1);
+}
+
 int main(){
   int data[] = {4, 2, 1, 5, 3};
   
