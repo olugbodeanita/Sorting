@@ -1,80 +1,81 @@
 #include <iostream>
 #include <string> //in case we want to use an array of strings for an example
 
+using namespace std;
+
 template< class T>
 void print(T data[], int n) {
 	for(int i=0;i<n;i++)
-		std::cout << data[i] << " ";
+		cout << data[i] << " ";
 }
 
 template<class T>
-void merge(T data[], T temp[], int low, int mid, int high){
+void merge(T data[], T temp[], int low, int mid, int high) {
 
-  //O(n) memory complexity
-  //create temporary array, size is equal to size of input
-  for(int i = low; i <= high; i++){
-    temp[i] = data[i];
-  }
-  //variables to track indices
-  int i = low;
-  int j = mid + 1;
-  int k = low;
+	//O(n) memory complexity
+    //create temporary array, size is equal to size of input
+	for(int i=low;i<=high;i++) {
+		temp[i] = data[i];
+	}
+    //variables to track indices
+	int i = low;
+	int j = mid + 1;
+	int k = low;
 
-  //while we have items in left and right subarray
-  while( (i <= mid) && (j <= high) ){
-  //if left is smaller, we put it to its right/sorted position in the array
-    if(temp[i] <= temp[j]){
-      data[k] = temp[i];
-      i++;
-    } else {
-      data[k] = temp[j];
-      j++;
+	//while we have items in left and right subarray
+	while( (i<=mid) && (j<=high) ) {
+        //if left is smaller, we put it to its right/sorted position in the array
+		if( temp[i] <= temp[j] ) {
+			data[k] = temp[i];
+			i++;
+		} else {
+			data[k] = temp[j];
+			j++;
+		}
+		k++;
+	}
+	//sometimes we have items left in the left subarray, so we copy it to the final nums array. They're in sorted order at this point, so we just copy them
+    while (i <= mid) {
+        data[k] = temp[i];
+        k++;
+        i++;
     }
-    k++;
-  }
-
-  //sometimes we have items left in the left subarray, so we copy it to the final nums array. They're in sorted order at this point, so we just copy them
-  while( i <= mid ){
-    data[k] = temp[i];
-    k++;
-    i++;
-  }
-
-  //same reasoning for the last while loop applies to this loop, but for the right subarray
-  while( j > high ){
-    data[k] = temp[i];
-    j++;
-    k++;
-  }
+	//same reasoning for the last while loop applies to this loop, but for the right subarray
+    while (j <= high) {
+        data[k] = temp[j];
+        k++;
+        j++;
+    }
 }
 
 template<class T>
-void mergesort(T data[], T temp[], int low, int high){
-  //base case for recursive method calls
-  if(low >= high){
-    return;
-  }
-  //look for the middle index to partition the array into 2 equal subarrays
-  int mid = (low + high)/2;
-  //call the merge sort method recursively on the left subarray
-  mergesort(data, temp, low, mid);
-  //call the merge sort method recursively on the right subarray
-  mergesort(data, temp, mid + 1, high);
-  //conquer
-  merge(data, temp, low, mid, high);
+void mergesort(T data[], T temp[], int low, int high) {
+    //base case for recursive method calls
+	if( low >= high) {
+		return;
+	}
+    //look for the middle index to partition the array into 2 equal subarrays
+	int mid = (low+high)/2;
+    //call the merge sort method recursively on the left subarray (divide left)
+	mergesort(data, temp, low, mid);
+	//call the merge sort method recursively on the right subarray (divide right)
+	mergesort(data, temp, mid+1, high);
+	//conquer
+	merge(data, temp, low, mid, high);
 }
 
 template<class T>
-void sort(T data[], T temp[], int n){
-  mergesort(data, temp, 0, n - 1);
+void sort(T data[], T temp[], int n) {
+	mergesort(data, temp, 0, n-1);
 }
 
-int main(){
-  int data[] = {4, 2, 1, 5, 3};
+main() {
 
-  int n = sizeof(data)/sizeof(data[0]);
-  int temp[n];
+	int data[] = {4, 2, 1, 5, 3};
+	int n = sizeof(data)/sizeof(data[0]);
 
-  sort(data, temp, n);
-  print(data, n);
+	int temp[n];
+
+	sort(data, temp, n);
+	print(data, n);
 }
