@@ -1,4 +1,5 @@
 #include <iostream>
+
 const int numBucks = 10;
 
 void print(int *data, int n){
@@ -9,27 +10,27 @@ void print(int *data, int n){
 
 void countingSort(int* data, int n){
     //initialize counting array with 0's
-    int countArr[numBucks] = {0};
+    int counterArr[numBucks] = {0};
     int outputArr[n];
     //increments counting array accordingly
     for(int i = 0; i < n; i++){
-        countArr[data[i]]++;
+        counterArr[data[i]]++;
     }
     //transform that counting array to make the connection between the data array and output array
     for(int i = 1; i < numBucks; i++){
-        countArr[i] += countArr[i - 1];
+        counertArr[i] += counterArr[i - 1];
     }
     //make sure data is inserted with the right index into the output array, decrements counting array value
     for(int i = 0; i < n; i++){
         outputArr[countArr[data[i]]-1] = data[i];
-        countArr[data[i]]--;
+        counterArr[data[i]]--;
     }
     //iterate all items in output array, copy the values into the data array
     for(int i = 1; i < n; i++){
         data[i] += outputArr[i];
     }
-
 }
+
 int main()
 {
     int data[] = {7, 3, 5, 2, 4, 8, 9, 1, 6};
