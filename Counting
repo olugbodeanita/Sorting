@@ -18,7 +18,7 @@ void countingSort(int* data, int n){
     }
     //transform that counting array to make the connection between the data array and output array
     for(int i = 1; i < numBucks; i++){
-        counertArr[i] += counterArr[i - 1];
+        counterArr[i] += counterArr[i - 1];
     }
     //make sure data is inserted with the right index into the output array, decrements counting array value
     for(int i = 0; i < n; i++){
