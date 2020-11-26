@@ -1,12 +1,10 @@
 #include <iostream>
 #include <string> //in case we want to use an array of strings for an example
 
-using namespace std;
-
 template< class T>
 void print(T data[], int n) {
 	for(int i=0;i<n;i++)
-		cout << data[i] << " ";
+		std::cout << data[i] << " ";
 }
 
 template<class T>
