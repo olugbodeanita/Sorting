@@ -32,7 +32,9 @@ void print(T data, int n){
 }
 
 int main(){
-  int data[] = {4, 2, 1, 5, 3};
+  //string data[] = {"Marco", "Evan", "Anita"};
+  int data[] = {4, 7, 2, 1, 5, 3, 6};
+  //char data[] = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
   
   int n = sizeof(data)/sizeof(data[0]);
   
